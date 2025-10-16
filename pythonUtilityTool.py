@@ -1,3 +1,7 @@
+import time
+from datetime import date
+import pyfiglet as ascii
+
 def measurementConverter():
     imperialOrMetric = 0
     
@@ -125,6 +129,9 @@ def measurementConverter():
             case _:
                 print("Invalid Choice")
 
+def clock():
+
+
 def is_int(userInput):
     try:
         return int(userInput)
@@ -146,7 +153,9 @@ def main():
         match userOption:
 
             case 1:
-                
+                measurementConverter()
+            
+            case 2:
 
 
 main()
