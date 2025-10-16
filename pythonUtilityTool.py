@@ -11,7 +11,7 @@ def measurementConverter():
         userOption = is_int(user_input)
 
         if userOption is None:
-            print("Invalid input. Please enter a number 1-5.")
+            print("Invalid input. Please enter a number 1-4.")
             continue
 
         match userOption:
@@ -128,16 +128,22 @@ def measurementConverter():
 
             case _:
                 print("Invalid Choice")
-            
-        main()
 
 def clock():
     currDate = date.datetime.now()
     localTime = time.localtime(time.time())
     prettyTime = time.strftime("%H:%M:%S", localTime)
     print(f"\nToday is {currDate.date()}.\nThe time is {prettyTime}.\n")
-    main()
 
+def asciiBanner():
+    while True:
+        bannerText = input("Please enter text you would like to turn into an ascii banner: ").strip()
+        if not bannerText:
+            print("You must input some text.")
+            continue
+        asciiBanner = ascii.figlet_format(bannerText)
+        print(asciiBanner)
+        break
 
 def is_int(userInput):
     try:
