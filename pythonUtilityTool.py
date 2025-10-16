@@ -1,5 +1,5 @@
 import time
-from datetime import date
+import datetime as date
 import pyfiglet as ascii
 
 def measurementConverter():
@@ -128,8 +128,15 @@ def measurementConverter():
 
             case _:
                 print("Invalid Choice")
+            
+        main()
 
 def clock():
+    currDate = date.datetime.now()
+    localTime = time.localtime(time.time())
+    prettyTime = time.strftime("%H:%M:%S", localTime)
+    print(f"\nToday is {currDate.date()}.\nThe time is {prettyTime}.\n")
+    main()
 
 
 def is_int(userInput):
@@ -146,7 +153,7 @@ def is_float(userInput):
 
 def main():
     while True:
-        user_input = input("Please enter the number that corresponds to the function you would like to utilize: 1. Measurement Converter\n2. Clock\n3. Dice Roll").strip()
+        user_input = input("Please enter the number that corresponds to the function you would like to utilize:\n1. Measurement Converter\n2. Clock\n3. Ascii Banner\n4. Quit\n").strip()
     
         userOption = is_int(user_input)
 
@@ -156,7 +163,13 @@ def main():
                 measurementConverter()
             
             case 2:
+                clock()
 
+            case 3:
+                asciiBanner()
+            
+            case 4:
+                break
 
 main()
         
